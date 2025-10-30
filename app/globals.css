@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 3.9%;
+    --sidebar-primary: 0 0% 9%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 96.1%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 0 0% 89.8%;
+    --sidebar-ring: 0 0% 3.9%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 0 0% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 0 0% 9%;
+    --sidebar-accent: 0 0% 14.9%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 14.9%;
+    --sidebar-ring: 0 0% 83.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", system-ui, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom link styling */
+a {
+  @apply transition-all duration-300;
+}
+
+/* Smooth animations */
+* {
+  @apply transition-colors duration-300;
+}
+
+/* Enhanced typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  letter-spacing: -0.025em;
+}
+
+/* Home Logo Styling */
+.home-logo {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.home-logo:hover {
+  @apply scale-105;
+}
+
+/* Remove white backgrounds from SVGs */
+.home-logo svg,
+.home-logo img {
+  background: transparent !important;
+  mix-blend-mode: multiply;
+}
+
+/* Target white fills in SVG paths and shapes */
+.home-logo svg path[fill="white"],
+.home-logo svg path[fill="#ffffff"],
+.home-logo svg path[fill="#FFFFFF"],
+.home-logo svg path[fill="rgb(255,255,255)"] {
+  fill: transparent !important;
+}
+
+.home-logo svg rect[fill="white"],
+.home-logo svg rect[fill="#ffffff"],
+.home-logo svg rect[fill="#FFFFFF"],
+.home-logo svg rect[fill="rgb(255,255,255)"] {
+  fill: transparent !important;
+}
+
+.home-logo svg circle[fill="white"],
+.home-logo svg circle[fill="#ffffff"],
+.home-logo svg circle[fill="#FFFFFF"],
+.home-logo svg circle[fill="rgb(255,255,255)"] {
+  fill: transparent !important;
+}
+
+/* SVG Header Styling */
+.svg-header-container {
+  @apply flex justify-center items-center;
+}
+
+.svg-header {
+  @apply transition-all duration-300;
+  filter: brightness(0) saturate(100%) invert(45%) sepia(25%) saturate(1000%) hue-rotate(75deg) brightness(95%)
+    contrast(85%);
+}
+
+.svg-header:hover {
+  @apply opacity-80;
+  transform: scale(1.02);
+}
+
+/* Ensure SVGs are properly sized and responsive */
+.svg-header-container img {
+  @apply max-w-full h-auto;
+  min-height: 60px;
+}
+
+/* Fallback styling for failed SVG loads */
+.svg-fallback {
+  @apply text-4xl font-light text-sage text-center;
+}
+
+@media (max-width: 768px) {
+  .svg-header {
+    max-width: 250px;
+  }
+
+  .home-logo img {
+    max-width: 120px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .svg-header {
+    max-width: 200px;
+  }
+
+  .home-logo img {
+    max-width: 100px !important;
+  }
+}
+
+/* Responsive home logo sizing */
+@media (min-width: 768px) {
+  .home-logo img {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-logo img {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-logo img {
+    max-width: 100px;
+  }
+}
