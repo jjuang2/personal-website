@@ -58,6 +58,13 @@ interface BlogPostPageProps {
   }
 }
 
+// Generate static paths for all blog posts
+export async function generateStaticParams() {
+  return Object.keys(blogPosts).map((slug) => ({
+    slug: slug,
+  }))
+}
+
 export default function BlogPostPage({ params }: BlogPostPageProps) {
   const post = blogPosts[params.slug as keyof typeof blogPosts]
 
